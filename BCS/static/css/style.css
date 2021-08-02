@@ -1,0 +1,22 @@
+.content {
+    display: flex;
+    align-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: row;
+}
+
+.containter__tsmr {
+    display: flex;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+
+.button__tsmr {
+    height: 10vh;
+    width: 55%;
+    font-size: 2rem;
+}
