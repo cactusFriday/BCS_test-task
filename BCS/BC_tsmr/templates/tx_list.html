@@ -2,9 +2,49 @@
 {% block title %} coin transmitter {% endblock %}
 {% block content %}
 
+{% comment %} "{% url '#' %}" {% endcomment %}
+
 <div class="container containter__tsmr">
-    <button type="button" class="btn btn-primary button__tsmr" data-dismiss="modal">SEND</button>
+    <form class="container containter__tsmr" action = '.' method = "post">
+        {% csrf_token %}
+        {% comment %} <input type = "button" class="btn btn-primary button__tsmr" value="SEND"/> {% endcomment %}
+        <button type="submit" class="btn btn-primary button__tsmr" data-dismiss="modal">SEND</button>
+        
+    </form>
+    {% comment %} <button type="button" class="btn btn-primary button__tsmr" data-dismiss="modal">SEND</button> {% endcomment %}
     {% comment %} <button type="button" class="btn btn-primary">Save changes</button> {% endcomment %}
+    <div class = 'container scroll-table'>
+        <table>
+            <thead>
+                <tr>
+                    <th>1</th>
+                    <th>2</th>
+                    <th>3</th>
+                    <th>4</th>
+                    <th>5</th>
+                </tr>
+            </thead>
+        </table>	
+        <div class="scroll-table-body">
+            <table>
+                <tbody>
+                {% if record %}
+                    {% for i in record %}
+                    <tr>
+                        <td><a href = "{%url 'tranc_list:tx-detail' 1%}">{{i}}</a></td>
+                        <td>{{i}}</td>
+                        <td>{{i}}</td>
+                        <td>{{i}}</td>
+                        <td>{{i}}</td>
+                    </tr>
+                    {% endfor %}
+                {% else %}
+                    <p>No transactions</p>
+                {% endif %}
+                </tbody>
+            </table>
+        </div>
+    </div>
     <div class = 'row'>
         <div class = 'col'>
             <div class="container">
@@ -12,6 +52,9 @@
         </div>
     </div>
 </div>
+<script>
+
+</script>
 {% comment %} 
     #TODO: List of transactions and maybe footer + header (just lines of color)
 {% endcomment %}
